@@ -1,14 +1,38 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Ionic Blank
+      Calculadora
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+<ion-content padding="true">
+
+  <ion-item>
+    <ion-label position="stacked">Primer valor</ion-label>
+    <ion-input type="number" [(ngModel)]="firstValue"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Segundo valor</ion-label>
+    <ion-input type="number" [(ngModel)]="secondaValue"></ion-input>
+  </ion-item>
+
+  <ion-list>
+    <ion-list-header>Operaciones</ion-list-header>
+
+    <ion-item>
+      <ion-label>Operación</ion-label>
+      <ion-select placeholder="Selecciona una" [(ngModel)]="operation">
+        <ion-select-option value="addition">Sumar</ion-select-option>
+        <ion-select-option value="substraction">Restar</ion-select-option>
+        <ion-select-option value="multiplication">Multiplicar</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" color="primary" (click)="calculate()">Calcular</ion-button>
+  <p>
+    <span [innerHTML]="result"></span>
+  </p>
 </ion-content>
