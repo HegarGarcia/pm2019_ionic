@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Productos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="addProduct()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-list>
+      <ion-list-header color="tertiary">
+        <ion-label>{{total}} productos</ion-label>
+      </ion-list-header>
+      <ion-item *ngFor="let record of records" (click)="editProduct(record)">
+
+        <ion-avatar>
+          <img src="{{record.fotografia}}">
+        </ion-avatar>
+        <ion-label>
+          <h3>{{record.nombre}}</h3>
+          <p>{{record.descripcion}}</p>
+          <p>${{record.preciodeventa}}</p>
+        </ion-label>
+
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
